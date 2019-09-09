@@ -24,7 +24,7 @@ syntax keyword cythonType void object
 " could not be listed in 'pythonInclude' syntax as a keyword.
 " So remove 'pythonInclude' and re-define it as 'cythonInclude' without 'from'
 " keyword here.
-syntax clear   pythonInclude
+" syntax clear   pythonInclude
 syntax keyword cythonInclude  import cimport include
 syntax match   cythonInclude  display '\<from\>\ze.*\<c\?import\>'
 

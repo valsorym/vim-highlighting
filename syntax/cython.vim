@@ -21,11 +21,11 @@ syntax keyword cythonType float double
 syntax keyword cythonType void object
 
 " While Cython use 'from' in import/cimport, cdef-extern, and for-loop, it
-" could not be listed in 'pythonInclude' syntax as a keyword.
-" So remove 'pythonInclude' and re-define it as 'cythonInclude' without 'from'
+" could not be listed in 'pythonImport' syntax as a keyword.
+" So remove 'pythonImport' and re-define it as 'cythonInclude' without 'from'
 " keyword here.
-" syntax clear   pythonInclude
-syntax keyword cythonInclude  import cimport include
+syntax clear   pythonImport
+syntax keyword cythonInclude  from import cimport include
 syntax match   cythonInclude  display '\<from\>\ze.*\<c\?import\>'
 
 " While Cython has a bit different syntax for for-loop, re-define pythonRepeat
@@ -79,7 +79,7 @@ endif
 " Default highlighting
 highlight default link cythonType           Type
 highlight default link cythonReturnType     cythonType
-highlight default link cythonInclude        pythonInclude
+highlight default link cythonInclude        pythonImport
 highlight default link cythonRepeat         pythonRepeat
 highlight default link cythonStatement      pythonStatement
 highlight default link cythonStructure      cythonStatement

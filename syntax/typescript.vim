@@ -122,11 +122,12 @@ syntax keyword typescriptLabel case default async readonly
 syntax keyword typescriptStatement return with
 
 syntax keyword typescriptGlobalObjects Array Boolean Date Function Infinity JSON Math Number NaN Object Packages RegExp String Symbol netscape ArrayBuffer BigInt64Array BigUint64Array Float32Array Float64Array Int16Array Int32Array Int8Array Uint16Array Uint32Array Uint8Array Uint8ClampedArray Buffer Collator DataView DateTimeFormat Intl Iterator Map Set WeakMap WeakSet NumberFormat ParallelArray Promise Proxy Reflect Uint8ClampedArray WebAssembly console document fetch window
-syntax keyword typescriptGlobalNodeObjects  module exports global process __dirname __filename
+syntax keyword typescriptGlobalNodeObjects declarations bootstrap providers imports module exports global process __dirname __filename
 
 syntax keyword typescriptExceptions try catch throw finally Error EvalError RangeError ReferenceError SyntaxError TypeError URIError
 
-syntax keyword typescriptReserved constructor declare as interface module abstract enum int short export interface static byte extends long super char final native synchronized class float package throws goto private transient debugger implements protected volatile double import public type namespace from get set keyof
+syntax keyword typescriptReserved constructor declare as interface module abstract enum int short export interface static byte extends long super char final native synchronized class float package throws goto private transient debugger implements protected volatile double import public type namespace from get set keyof  ngOnInit ngOnChanges ngDoCheck ngAfterContentInit ngAfterContentChecked ngAfterViewInit ngAfterViewChecked ngOnDestroy
+
 "}}}
 "" typescript/DOM/HTML/CSS specified things"{{{
 
@@ -141,7 +142,7 @@ syntax keyword typescriptReserved constructor declare as interface module abstra
 "}}}
 " DOM2 CONSTANT"{{{
   syntax keyword typescriptDomErrNo INDEX_SIZE_ERR DOMSTRING_SIZE_ERR HIERARCHY_REQUEST_ERR WRONG_DOCUMENT_ERR INVALID_CHARACTER_ERR NO_DATA_ALLOWED_ERR NO_MODIFICATION_ALLOWED_ERR NOT_FOUND_ERR NOT_SUPPORTED_ERR INUSE_ATTRIBUTE_ERR INVALID_STATE_ERR SYNTAX_ERR INVALID_MODIFICATION_ERR NAMESPACE_ERR INVALID_ACCESS_ERR
-  syntax keyword typescriptDomNodeConsts ELEMENT_NODE ATTRIBUTE_NODE TEXT_NODE CDATA_SECTION_NODE ENTITY_REFERENCE_NODE ENTITY_NODE PROCESSING_INSTRUCTION_NODE COMMENT_NODE DOCUMENT_NODE DOCUMENT_TYPE_NODE DOCUMENT_FRAGMENT_NODE NOTATION_NODE
+  syntax keyword typescriptDomNodeConsts ELEMENT_NODE ATTRIBUTE_NODE TEXT_NODE CDATA_SECTION_NODE ENTITY_REFERENCE_NODE ENTITY_NODE PROCESSING_INSTRUCTION_NODE COMMENT_NODE DOCUMENT_NODE DOCUMENT_TYPE_NODE DOCUMENT_FRAGMENT_NODE NOTATION_NODE APOLLO_OPTIONS APOLLO_NAMED_OPTIONS
 "}}}
 " HTML events and internal variables"{{{
   syntax case ignore
@@ -195,7 +196,7 @@ if main_syntax == "typescript"
 endif
 
 syntax keyword typescriptFuncKeyword function
-"syntax region typescriptFuncDef start="function" end="\(.*\)" contains=typescriptFuncKeyword,typescriptFuncArg keepend
+syntax region typescriptFuncDef start="function" end="\(.*\)" contains=typescriptFuncKeyword,typescriptFuncArg keepend
 "syntax match typescriptFuncArg "\(([^()]*)\)" contains=typescriptParens,typescriptFuncComma contained
 "syntax match typescriptFuncComma /,/ contained
 " syntax region typescriptFuncBlock contained matchgroup=typescriptFuncBlock start="{" end="}" contains=@typescriptAll,typescriptParensErrA,typescriptParensErrB,typescriptParen,typescriptBracket,typescriptBlock fold
@@ -230,7 +231,7 @@ if version >= 508 || !exists("did_typescript_syn_inits")
     command -nargs=+ HiLink hi link <args>
   else
     command -nargs=+ HiLink hi def link <args>
-  endif
+endif
 
   "typescript highlighting
   HiLink typescriptParameters Operator
@@ -310,7 +311,7 @@ if version >= 508 || !exists("did_typescript_syn_inits")
   HiLink typescriptAjaxMethods Function
   HiLink typescriptAjaxProperties Special
 
-  HiLink typescriptFuncDef Title
+  HiLink typescriptFuncDef Function
   HiLink typescriptFuncArg Special
   HiLink typescriptFuncComma Operator
 

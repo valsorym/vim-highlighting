@@ -68,7 +68,7 @@ syn keyword     gotplFunctions   contained   and html index js len not or print 
 syn match       gotplVariable    contained   /\$[^ ]*\>/
 syn match       goTplIdentifier  contained   /\.[^ ]*\>/
 
-hi def link     gotplControl        Keyword
+hi def link     gotplControl        Label
 hi def link     gotplFunctions      Function
 hi def link     goTplVariable       Special
 
